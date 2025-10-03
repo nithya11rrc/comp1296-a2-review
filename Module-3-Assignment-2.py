@@ -16,7 +16,7 @@ Use the list of tuples
 Use the legth function to get the number of players
 """
 # player_count = len(players)
-
+# Refactor as a function
 def count_players(players):
     return len(players)
 
@@ -31,10 +31,18 @@ average = total/ number of players
 print
 """
 
-total = 0
-for p in players:
-    total += p[1]
-avg = total/ player_count
+# total = 0
+# for p in players:
+#     total += p[1]
+# avg = total/ player_count
+
+# Refactor as a function
+def calculate_avg_score(players):
+    total = 0
+    for p in players:
+        total += p[1]
+    return total/ player_count
+avg = calculate_avg_score(players) 
 
 # Expected Output
 print("=== Leaderboard ===")
