@@ -52,10 +52,19 @@ for each player:
         update highest_score_name, highest_score
 update the print statement
 """
-highest_score_name, highest_score = players[0]
-for name, score in players:
-    if score > highest_score:
-        highest_score_name, highest_score = name, score
+# highest_score_name, highest_score = players[0]
+# for name, score in players:
+#     if score > highest_score:
+#         highest_score_name, highest_score = name, score
+
+# Refactor to function
+def find_highest_score(players):
+    highest_score_name, highest_score = players[0]
+    for name, score in players:
+        if score > highest_score:
+            highest_score_name, highest_score = name, score
+    return highest_score_name, highest_score
+highest_score_name, highest_score = find_highest_score(players)
 
 
 # Expected Output
