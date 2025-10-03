@@ -15,9 +15,12 @@ players = [("Sally", 95), ("Toby", 88), ("Sandeep", 10), ("Alice", 5)]
 Use the list of tuples 
 Use the legth function to get the number of players
 """
+# player_count = len(players)
 
-player_count = len(players)
+def count_players(players):
+    return len(players)
 
+player_count = count_players(players)
 
 
 # Expected Output
