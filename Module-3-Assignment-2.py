@@ -22,6 +22,19 @@ def count_players(players):
 
 player_count = count_players(players)
 
+# Feature: Average Scores of players
+"""
+Initialize total = 0
+For each player in players:
+    Add player's score to the total
+average = total/ number of players
+print
+"""
+
+total = 0
+for p in players:
+    total += p[1]
+avg = total/ player_count
 
 # Expected Output
 print("=== Leaderboard ===")
@@ -34,5 +47,5 @@ print("=== Summary ===")
 print(f"Players: {player_count}")
 print(f"Highest: {None}")
 print(f"Lowest:  {None}")
-print(f"Average: {None}")
+print(f"Average: {avg}")
 
