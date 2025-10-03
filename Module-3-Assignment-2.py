@@ -44,6 +44,20 @@ def calculate_avg_score(players):
     return total/ player_count
 avg = calculate_avg_score(players) 
 
+# Feature: Highest Score
+"""
+set hightest_score_name, highest_score from first player
+for each player:
+    if playe's score > highest_score:
+        update highest_score_name, highest_score
+update the print statement
+"""
+highest_score_name, highest_score = players[0]
+for name, score in players:
+    if score > highest_score:
+        highest_score_name, highest_score = name, score
+
+
 # Expected Output
 print("=== Leaderboard ===")
 print(f"{None}")
@@ -53,7 +67,7 @@ print(f"{None}")
 
 print("=== Summary ===")
 print(f"Players: {player_count}")
-print(f"Highest: {None}")
+print(f"Highest: {highest_score_name} - {highest_score}")
 print(f"Lowest:  {None}")
 print(f"Average: {avg}")
 
