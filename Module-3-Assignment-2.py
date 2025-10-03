@@ -74,11 +74,19 @@ For each player:
         update lowest_score_name, lowest_score
 Print int he summary
 """
-lowest_score_name, lowest_score = players[0]
-for name, score in players:
-    if score < lowest_score:
-        lowest_score_name, lowest_score = name, score
+# lowest_score_name, lowest_score = players[0]
+# for name, score in players:
+#     if score < lowest_score:
+#         lowest_score_name, lowest_score = name, score
 
+# Refactor to function
+def find_lowest(players):
+    lowest_score_name, lowest_score = players[0]
+    for name, score in players:
+        if score < lowest_score:
+            lowest_score_name, lowest_score = name, score
+    return lowest_score_name, lowest_score  
+lowest_score_name, lowest_score = find_lowest(players)
 
 # Expected Output
 print("=== Leaderboard ===")
