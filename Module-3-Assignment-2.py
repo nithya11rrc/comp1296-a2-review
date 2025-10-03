@@ -66,6 +66,19 @@ def find_highest_score(players):
     return highest_score_name, highest_score
 highest_score_name, highest_score = find_highest_score(players)
 
+# Feature: Lowest score
+"""
+set lowest_score_name, lowest_score from the first player
+For each player:
+    if the player's score < lowest_score:
+        update lowest_score_name, lowest_score
+Print int he summary
+"""
+lowest_score_name, lowest_score = players[0]
+for name, score in players:
+    if score < lowest_score:
+        lowest_score_name, lowest_score = name, score
+
 
 # Expected Output
 print("=== Leaderboard ===")
@@ -77,6 +90,6 @@ print(f"{None}")
 print("=== Summary ===")
 print(f"Players: {player_count}")
 print(f"Highest: {highest_score_name} - {highest_score}")
-print(f"Lowest:  {None}")
+print(f"Lowest:  {lowest_score_name} - {lowest_score}")
 print(f"Average: {avg}")
 
