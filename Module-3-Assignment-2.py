@@ -31,7 +31,7 @@ while True:
 # Feature: Length or Number of Players
 """
 Use the list of tuples 
-Use the legth function to get the number of players
+Use the length function to get the number of players
 """
 # player_count = len(players)
 
@@ -106,11 +106,31 @@ def find_lowest(players):
     return lowest_score_name, lowest_score  
 lowest_score_name, lowest_score = find_lowest(players)
 
-# Expected Output
+# Leaderboard 
 print("=== Leaderboard ===")
-print(f"{None}")
-print(f"{None}")
-print(f"{None}")
+# Feature: Add a leaderboard with top 3 players
+if players: 
+    top_scores = players[:]
+    for rank in range(1, 4):
+        if not top_scores:
+            break
+        best_player, best_score = top_scores[0]
+        for player, score in top_scores[1:]:
+            if score > best_score:
+                best_player, best_score = player, score
+        print(f"{rank}. {best_player} - {best_score}")
+
+        top_scores.remove((best_player, best_score))
+else:
+    print("No players to display.")
+
+
+
+# Expected Output
+
+# print(f"{None}")
+# print(f"{None}")
+# print(f"{None}")
 
 print("=== Summary ===")
 print(f"Players: {player_count}")
