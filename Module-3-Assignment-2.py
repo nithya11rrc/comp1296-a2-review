@@ -7,8 +7,26 @@ Build a code to get inputs from the user to create a Leaderboard
 and a summry
 """
 
-# Test data
-players = [("Sally", 95), ("Toby", 88), ("Sandeep", 10), ("Alice", 5)]
+# # Test data
+# players = [("Sally", 95), ("Toby", 88), ("Sandeep", 10), ("Alice", 5)]
+
+# Feature: Get input from user for name and score
+players = []
+while True:
+    player_name = input("Enter player name (or \"done\"): ")
+    if player_name.lower() == "done":
+        break
+    elif player_name == "":
+        print("The name cannot be blank.")
+        continue
+    else: 
+        player_score = input(f"Enter score for {player_name}: ")
+        try:
+            if int(player_score) >= 0:
+                player = (player_name, int(player_score))
+                players.append(player)
+        except:
+            print("Invalid score. Skipping this entry")
 
 # Feature: Length or Number of Players
 """
@@ -16,6 +34,7 @@ Use the list of tuples
 Use the legth function to get the number of players
 """
 # player_count = len(players)
+
 # Refactor as a function
 def count_players(players):
     return len(players)
@@ -30,7 +49,6 @@ For each player in players:
 average = total/ number of players
 print
 """
-
 # total = 0
 # for p in players:
 #     total += p[1]
@@ -93,7 +111,6 @@ print("=== Leaderboard ===")
 print(f"{None}")
 print(f"{None}")
 print(f"{None}")
-
 
 print("=== Summary ===")
 print(f"Players: {player_count}")
