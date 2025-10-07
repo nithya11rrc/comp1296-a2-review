@@ -109,23 +109,40 @@ lowest_score_name, lowest_score = find_lowest(players)
 # Leaderboard 
 print("=== Leaderboard ===")
 # Feature: Add a leaderboard with top 3 players
-if players: 
-    top_scores = players[:]
-    for rank in range(1, 4):
-        if not top_scores:
-            break
-        best_player, best_score = top_scores[0]
-        for player, score in top_scores[1:]:
-            if score > best_score:
-                best_player, best_score = player, score
-        print(f"{rank}. {best_player} - {best_score}")
+# if players: 
+#     top_scores = players[:]
+#     for rank in range(1, 4):
+#         if not top_scores:
+#             break
+#         best_player, best_score = top_scores[0]
+#         for player, score in top_scores[1:]:
+#             if score > best_score:
+#                 best_player, best_score = player, score
+#         print(f"{rank}. {best_player} - {best_score}")
 
-        top_scores.remove((best_player, best_score))
-else:
-    print("No players to display.")
+#         top_scores.remove((best_player, best_score))
+# else:
+#     print("No players to display.")
 
+# Refactor to function
+def leaderboard(players):
+    print("=== Leaderboard ===")
+    if players: 
+        top_scores = players[:]
+        for rank in range(1, 4):
+            if not top_scores:
+                break
+            best_player, best_score = top_scores[0]
+            for player, score in top_scores[1:]:
+                if score > best_score:
+                    best_player, best_score = player, score
+            print(f"{rank}. {best_player} - {best_score}")
 
+            top_scores.remove((best_player, best_score))
+    else:
+        print("No players to display.")
 
+leaderboard(players)
 # Expected Output
 
 # print(f"{None}")
