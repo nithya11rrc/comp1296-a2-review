@@ -39,8 +39,6 @@ Use the length function to get the number of players
 def count_players(players):
     return len(players)
 
-player_count = count_players(players)
-
 # Feature: Average Scores of players
 """
 Initialize total = 0
@@ -60,7 +58,6 @@ def calculate_avg_score(players):
     for p in players:
         total += p[1]
     return total/ player_count
-avg = calculate_avg_score(players) 
 
 # Feature: Highest Score
 """
@@ -82,7 +79,6 @@ def find_highest_score(players):
         if score > highest_score:
             highest_score_name, highest_score = name, score
     return highest_score_name, highest_score
-highest_score_name, highest_score = find_highest_score(players)
 
 # Feature: Lowest score
 """
@@ -104,10 +100,9 @@ def find_lowest(players):
         if score < lowest_score:
             lowest_score_name, lowest_score = name, score
     return lowest_score_name, lowest_score  
-lowest_score_name, lowest_score = find_lowest(players)
 
 # Leaderboard 
-print("=== Leaderboard ===")
+# print("=== Leaderboard ===")
 # Feature: Add a leaderboard with top 3 players
 # if players: 
 #     top_scores = players[:]
@@ -126,7 +121,6 @@ print("=== Leaderboard ===")
 
 # Refactor to function
 def leaderboard(players):
-    print("=== Leaderboard ===")
     if players: 
         top_scores = players[:]
         for rank in range(1, 4):
@@ -142,16 +136,20 @@ def leaderboard(players):
     else:
         print("No players to display.")
 
-leaderboard(players)
+
 # Expected Output
-
-# print(f"{None}")
-# print(f"{None}")
-# print(f"{None}")
-
-print("=== Summary ===")
-print(f"Players: {player_count}")
-print(f"Highest: {highest_score_name} - {highest_score}")
-print(f"Lowest:  {lowest_score_name} - {lowest_score}")
-print(f"Average: {avg}")
+if players:
+    player_count = count_players(players)
+    avg = calculate_avg_score(players) 
+    highest_score_name, highest_score = find_highest_score(players)
+    lowest_score_name, lowest_score = find_lowest(players)
+    print("=== Leaderboard ===")
+    leaderboard(players)
+    print("=== Summary ===")
+    print(f"Players: {player_count}")
+    print(f"Highest: {highest_score_name} - {highest_score}")
+    print(f"Lowest:  {lowest_score_name} - {lowest_score}")
+    print(f"Average: {avg}")
+else:
+    print("No players entered.")
 
